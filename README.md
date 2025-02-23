@@ -14,31 +14,56 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
 - **Dr. Mu'awya Al-Dala'ien** – Supervision.
 
 ---
+###**The methodology involved:**
 
-## **How 2GDPR Scraper Works**
-1. **Extracts educational URLs from the dataset**.
-2. **Uses Selenium to automate interactions with 2GDPR**.
-3. **Analyzes the results by extracting HTML elements and color-coded indicators**.
-4. **Stores results in a structured CSV format**.
+1. **Extracting websites from the dataset**:
+   - We started with a dataset of 8,483 educational URLs derived from "The Majestic Million."
+   - The URLs were extracted and fed into the automation script.
 
----
+2. **Automating interactions with 2GDPR using Selenium**:
+   - Navigating to the **2GDPR** site.
+   - Entering each URL into the website’s input field.
+   - Simulating button clicks to initiate the compliance check.
 
-## **Challenges & How We Overcame Them**
-### **1. Website Blocking & Rate Limits**
-- The **2GDPR website detected and blocked automated requests** after multiple queries.
-- **Solution:** 
-  - Introduced **randomized delays** between requests (0.5 to 2 seconds).
-  - Implemented **longer pauses every 20 queries** to mimic human behavior.
-  - Ran **multiple devices on separate networks** (e.g., **home Wi-Fi, university Wi-Fi, mobile hotspot**) to distribute the workload and reduce detection.
+3. **Extracting results from HTML content**:
+   - Results were extracted by parsing the HTML of the results page.
+   - We analyzed **icons and colors** on the screen:
+     - **Green icons** indicated GDPR compliance.
+     - **Red icons** flagged non-compliance.
+   - A binary output (e.g., `[1, 0, 1, 1, 1]`) was generated for each website, representing the outcomes of the compliance checks.
 
-### **2. Dynamic Content Loading**
-- The compliance check results took time to load dynamically.
-- **Solution:**  
-  - Used **explicit wait conditions** to ensure the page fully loaded before extracting data.
+4. **Challenges Encountered**:
+   - **Rate Limits & Blocking**:
+     - The 2GDPR website imposed rate limits, which triggered CAPTCHA challenges and sometimes blocked requests entirely.
+   - **Dynamic Content Loading**:
+     - Results were not static and required repeated checks to confirm when the data was fully loaded.
+   - **Scalability Issues**:
+     - Processing a large number of URLs proved to be unsustainable due to dependencies on the third-party website.
 
-### **3. Partial Success & Scalability Issues**
-- Despite optimizations, we **only processed 1,200 out of 8,483 websites** due to rate limits.
-- **This limitation led us to develop a second approach**, removing dependence on external tools.
+5. **How We Tried to Overcome These Challenges**:
+   - **Mimicking Human Behavior**:
+     - Introduced **randomized delays** between requests (e.g., 0.5 to 2 seconds).
+     - Added **periodic longer pauses** after every 20 URLs to reduce detection.
+   - **Improved XPath Selection**:
+     - Used alternative XPath methods to locate elements more reliably.
+   - **Retry Mechanisms**:
+     - Implemented logic to retry failed requests due to timeouts or rate limits.
+   - **Dynamic Page Detection**:
+     - Added waiting mechanisms to detect when the dynamic content was fully loaded before extracting results.
+   - **Splitting Data into Batches**:
+     - To overcome rate limits and blocking, we **split the dataset into smaller batches** and distributed them across **multiple devices and networks**:
+       - Batches were run on different IP ranges (e.g., **home Wi-Fi, university Wi-Fi, mobile hotspot**), minimizing detection by the website.
+
+6. **Partial Success (1,200 Websites Completed)**:
+   - Despite the challenges, we successfully processed **1,200 URLs out of the 8,483** in the dataset.
+   - The results included:
+     - **Acceptance Status**: Whether the website passed or failed compliance checks.
+     - **Green Icon Count**: The number of compliance indicators passed.
+     - **Binary Check Results**: A 5-element binary representation of the checks performed.
+
+7. **Limitations**:
+   - The reliance on **2GDPR** as a third-party tool limited scalability and introduced potential reliability risks.
+   - The dynamic loading and frequent rate-limiting added significant delays to processing.
 
 ---
 
