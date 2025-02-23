@@ -32,24 +32,24 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
    - A binary output (e.g., `[1, 0, 1, 1, 1]`) was generated for each website, representing the outcomes of the compliance checks.
 
 ### **Challenges Encountered**:
-**1.Rate Limits & Blocking**:
+1. **Rate Limits & Blocking**:
      - The 2GDPR website imposed rate limits, which triggered CAPTCHA challenges and sometimes blocked requests entirely.
-**2.Dynamic Content Loading**:
+2. **Dynamic Content Loading**:
      - Results were not static and required repeated checks to confirm when the data was fully loaded.
-**3.Scalability Issues**:
+3. **Scalability Issues**:
      - Processing a large number of URLs proved to be unsustainable due to dependencies on the third-party website.
 
 **How We Tried to Overcome These Challenges**:
-   - **A.Mimicking Human Behavior**:
+   - **Mimicking Human Behavior**:
      - Introduced **randomized delays** between requests (e.g., 0.5 to 2 seconds).
      - Added **B.periodic longer pauses** after every 20 URLs to reduce detection.
-   - **C.Improved XPath Selection**:
+   - **Improved XPath Selection**:
      - Used alternative XPath methods to locate elements more reliably.
-   - **D.Retry Mechanisms**:
+   - **Retry Mechanisms**:
      - Implemented logic to retry failed requests due to timeouts or rate limits.
-   - **E.Dynamic Page Detection**:
+   - **Dynamic Page Detection**:
      - Added waiting mechanisms to detect when the dynamic content was fully loaded before extracting results.
-   - **F.Splitting Data into Batches**:
+   - **Splitting Data into Batches**:
      - To overcome rate limits and blocking, we **split the dataset into smaller batches** and distributed them across **multiple devices and networks**:
        - Batches were run on different IP ranges (e.g., **home Wi-Fi, university Wi-Fi, mobile hotspot**), minimizing detection by the website.
 ---
