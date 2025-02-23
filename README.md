@@ -14,7 +14,7 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
 - **Dr. Mu'awya Al-Dala'ien** – Supervision.
 
 ---
-###**The methodology involved:**
+### **The methodology involved:**
 
 1. **Extracting websites from the dataset**:
    - We started with a dataset of 8,483 educational URLs derived from "The Majestic Million."
@@ -32,50 +32,43 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
      - **Red icons** flagged non-compliance.
    - A binary output (e.g., `[1, 0, 1, 1, 1]`) was generated for each website, representing the outcomes of the compliance checks.
 
-4. **Challenges Encountered**:
-   - **Rate Limits & Blocking**:
+### **Challenges Encountered**:
+   - **1.Rate Limits & Blocking**:
      - The 2GDPR website imposed rate limits, which triggered CAPTCHA challenges and sometimes blocked requests entirely.
-   - **Dynamic Content Loading**:
+   - **2.Dynamic Content Loading**:
      - Results were not static and required repeated checks to confirm when the data was fully loaded.
-   - **Scalability Issues**:
+   - **3.Scalability Issues**:
      - Processing a large number of URLs proved to be unsustainable due to dependencies on the third-party website.
 
-5. **How We Tried to Overcome These Challenges**:
-   - **Mimicking Human Behavior**:
+**How We Tried to Overcome These Challenges**:
+   - **A.Mimicking Human Behavior**:
      - Introduced **randomized delays** between requests (e.g., 0.5 to 2 seconds).
-     - Added **periodic longer pauses** after every 20 URLs to reduce detection.
-   - **Improved XPath Selection**:
+     - Added **B.periodic longer pauses** after every 20 URLs to reduce detection.
+   - **C.Improved XPath Selection**:
      - Used alternative XPath methods to locate elements more reliably.
-   - **Retry Mechanisms**:
+   - **D.Retry Mechanisms**:
      - Implemented logic to retry failed requests due to timeouts or rate limits.
-   - **Dynamic Page Detection**:
+   - **E.Dynamic Page Detection**:
      - Added waiting mechanisms to detect when the dynamic content was fully loaded before extracting results.
-   - **Splitting Data into Batches**:
+   - **F.Splitting Data into Batches**:
      - To overcome rate limits and blocking, we **split the dataset into smaller batches** and distributed them across **multiple devices and networks**:
        - Batches were run on different IP ranges (e.g., **home Wi-Fi, university Wi-Fi, mobile hotspot**), minimizing detection by the website.
+---
 
-6. **Partial Success (1,200 Websites Completed)**:
+## **Final Results**
+**Partial Success (1,200 Websites Completed)**:
    - Despite the challenges, we successfully processed **1,200 URLs out of the 8,483** in the dataset.
    - The results included:
      - **Acceptance Status**: Whether the website passed or failed compliance checks.
      - **Green Icon Count**: The number of compliance indicators passed.
      - **Binary Check Results**: A 5-element binary representation of the checks performed.
 
-7. **Limitations**:
+**Limitations**:
    - The reliance on **2GDPR** as a third-party tool limited scalability and introduced potential reliability risks.
    - The dynamic loading and frequent rate-limiting added significant delays to processing.
 
----
-
-## **Final Results**
-- **1,200 educational websites analyzed.**
-- **Extracted GDPR compliance indicators using visual analysis of 2GDPR results.**
-- **Partial success due to rate limits and automation detection.**
-- **Led to the development of Approach 2 for a more scalable solution.**
+**solution**:
+While this approach demonstrated that automation could extract GDPR compliance data, it became evident that relying on a third-party tool like 2GDPR wasn’t sustainable for a larger-scale dataset. This realization led us to develop our custom GDPR compliance checker tool (add link) which offered greater control, flexibility, and scalability.
 
 ---
 
-## **How to Run**
-```bash
-pip install selenium pandas webdriver-manager beautifulsoup4
-python 2gdpr_scraper.py
