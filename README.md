@@ -1,5 +1,5 @@
 # Scalable-Web-Automation-Evaluating-8.4K-Websites-for-GDPR-Compliance-with-Selenium.
-# **Automating GDPR Compliance Audits Using 2GDPR by Selenium**
+### **Automating GDPR Compliance Audits Using 2GDPR by Selenium**
 ### **A Research Project in Collaboration with Princess Sumaya University for Technology (PSUT-January 2025)**  
 
 ## **Project Overview**  
