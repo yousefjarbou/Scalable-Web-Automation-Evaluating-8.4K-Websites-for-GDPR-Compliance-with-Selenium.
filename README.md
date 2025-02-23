@@ -10,7 +10,7 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
 
 ### **Project Contributors**  
 - **Sana Mourad & Aya Aljabali** – Research & dataset selection.
-- **Yousef Jarbou** – Automation & implementation.
+- **Yousef Jarbou** – Automation,implementation,research & dataset selection.
 - **Dr. Mu'awya Al-Dala'ien** – Supervision.
 
 ---
