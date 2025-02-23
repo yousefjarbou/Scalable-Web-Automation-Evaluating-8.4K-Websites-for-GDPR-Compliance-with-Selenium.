@@ -67,7 +67,7 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
    - The dynamic loading and frequent rate-limiting added significant delays to processing.
 
 **solution**:
-While this approach demonstrated that automation could extract GDPR compliance data, it became evident that relying on a third-party tool like 2GDPR wasn’t sustainable for a larger-scale dataset. This realization led us to develop our custom GDPR compliance checker tool (add link) which offered greater control, flexibility, and scalability.
+While this approach demonstrated that automation could extract GDPR compliance data, it became evident that relying on a third-party tool like 2GDPR wasn’t sustainable for a larger-scale dataset. This realization led us to develop our custom GDPR compliance checker tool [(*GDPR Custom Compliance Checker*)](https://github.com/yousefjarbou/GDPR-Custom-Compliance-Checker) which offered greater control, flexibility, and scalability.
 
 ---
 
