@@ -3,12 +3,10 @@
 ### **A Research Project in Collaboration with Princess Sumaya University for Technology (PSUT-January 2025)**  
 
 ## **Project Overview**  
-This repository contains an automation tool that interacts with the **[2GDPR website](https://2gdpr.com/)** to check GDPR compliance for websites. The script automates:
-- **Entering website URLs into 2GDPR**
-- **Extracting compliance results from the site**
-- **Saving the structured output for analysis**
+This project investigates GDPR compliance across **educational websites**, focusing on their cookie consent mechanisms. We aim to **analyze, detect, and evaluate** whether these websites adhere to the **General Data Protection Regulation (GDPR)** by properly handling **cookie consent** and ensuring user privacy.
 
-This approach was developed as part of a **research project analyzing GDPR compliance** across **8,483 educational websites**, derived from **[The Majestic Million](https://majestic.com/reports/majestic-million?domain=&majesticMillionType=2&tld=paris&oq=&canUseDefault=)** dataset.
+Our dataset originates from [**The Majestic Million**](https://majestic.com/reports/majestic-million?domain=&majesticMillionType=2&tld=paris&oq=&canUseDefault=), a publicly available list of the most visited websites globally. We specifically targeted **8,483 educational sector websites**, applying two approaches to test their compliance.
+
 
 ### **Project Contributors**  
 - **Sana Mourad & Aya Aljabali** – Research & dataset selection.
