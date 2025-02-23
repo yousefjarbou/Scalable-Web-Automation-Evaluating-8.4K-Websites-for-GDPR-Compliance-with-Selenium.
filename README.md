@@ -32,11 +32,11 @@ Our dataset originates from [**The Majestic Million**](https://majestic.com/repo
    - A binary output (e.g., `[1, 0, 1, 1, 1]`) was generated for each website, representing the outcomes of the compliance checks.
 
 ### **Challenges Encountered**:
-   - **1.Rate Limits & Blocking**:
+**1.Rate Limits & Blocking**:
      - The 2GDPR website imposed rate limits, which triggered CAPTCHA challenges and sometimes blocked requests entirely.
-   - **2.Dynamic Content Loading**:
+**2.Dynamic Content Loading**:
      - Results were not static and required repeated checks to confirm when the data was fully loaded.
-   - **3.Scalability Issues**:
+**3.Scalability Issues**:
      - Processing a large number of URLs proved to be unsustainable due to dependencies on the third-party website.
 
 **How We Tried to Overcome These Challenges**:
